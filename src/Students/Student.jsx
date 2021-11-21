@@ -30,7 +30,7 @@ const Student = ({ student }) => {
             <h2 className="student-name">
               {student.firstName} {student.lastName}
             </h2>
-            <p className="student-email">Email: {student.email}</p>
+            <p>Email: {student.email}</p>
             <p>Company: {student.company}</p>
             <p>Skill: {student.skill}</p>
             <p>Average: {studentAverage}%</p>
