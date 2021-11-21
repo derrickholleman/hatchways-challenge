@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import "./Student.css";
 import getAverage from "../utils/getAverage";
+import { v4 as uuidv4 } from "uuid";
 
 const Student = ({ student, tags, setTags }) => {
-  const [showGrades, setShowGrades] = useState(false);
-  const [tag, setTag] = useState({
+  const initialTagState = {
+    tagId: uuidv4(),
     studentId: student.id,
     content: "",
-  });
+  };
+  const [showGrades, setShowGrades] = useState(false);
+  const [tag, setTag] = useState({ ...initialTagState });
   const studentAverage = getAverage(student.grades);
 
   const gradesList = student.grades.map((grade, index) => {
@@ -22,10 +25,17 @@ const Student = ({ student, tags, setTags }) => {
     setShowGrades(!showGrades);
   };
 
+  const handleSetTag = (e) => {
+    setTag({
+      ...tag,
+      content: e.target.value,
+    });
+  };
+
   const handleSubmitTags = (e) => {
     e.preventDefault();
     setTags([...tags, tag]);
-    setTag({ id: student.id, content: "" });
+    setTag({ ...initialTagState });
   };
 
   const tagsList = tags.map((tag, index) => {
@@ -57,9 +67,7 @@ const Student = ({ student, tags, setTags }) => {
                 type="text"
                 placeholder="Add a tag"
                 value={tag.content}
-                onChange={(e) =>
-                  setTag({ studentId: student.id, content: e.target.value })
-                }
+                onChange={handleSetTag}
               />
               <input type="submit" style={{ display: "none" }} />
             </form>
