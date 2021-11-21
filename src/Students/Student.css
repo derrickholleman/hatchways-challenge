@@ -43,3 +43,7 @@
   cursor: pointer;
   margin-top: -.75rem;
 }
+
+.toggle-button:active {
+  transform: scale(.98);
+}
