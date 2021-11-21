@@ -6,7 +6,7 @@ import SearchbyName from "./Search/Search";
 function App() {
   const [students, setStudents] = useState([]);
   const [filteredStudents, setFilteredStudents] = useState([]);
-  const [searchText, setSearchText] = useState("");
+  const [searchByNameText, setSearchByNameText] = useState("");
   const [tags, setTags] = useState([])
 
   return (
@@ -14,13 +14,13 @@ function App() {
       <SearchbyName
         students={students}
         setFilteredStudents={setFilteredStudents}
-        searchText={searchText}
-        setSearchText={setSearchText}
+        searchByNameText={searchByNameText}
+        setSearchByNameText={setSearchByNameText}
       />
       <Students
         students={students}
         setStudents={setStudents}
-        searchText={searchText}
+        searchByNameText={searchByNameText}
         filteredStudents={filteredStudents}
         tags={tags}
         setTags={setTags}

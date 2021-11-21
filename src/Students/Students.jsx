@@ -4,7 +4,7 @@ import Student from "./Student";
 function Students({
   students,
   setStudents,
-  searchText,
+  searchByNameText,
   filteredStudents,
   tags,
   setTags,
@@ -29,7 +29,7 @@ function Students({
     <div>
       {students.students && (
         <div>
-          {searchText.length > 0
+          {searchByNameText.length > 0
             ? filteredStudents.map((student) => (
                 <Student
                   key={student.id}

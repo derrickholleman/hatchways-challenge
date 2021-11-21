@@ -4,27 +4,27 @@ import "./Search.css";
 const Search = ({
   students,
   setFilteredStudents,
-  searchText,
-  setSearchText,
+  searchByNameText,
+  setSearchByNameText,
 }) => {
   useEffect(() => {
     if (students.students) {
       let filteredStudents = students.students.filter(
         (student) =>
-          student.firstName.toLowerCase().includes(searchText.toLowerCase()) ||
-          student.lastName.toLowerCase().includes(searchText.toLowerCase())
+          student.firstName.toLowerCase().includes(searchByNameText.toLowerCase()) ||
+          student.lastName.toLowerCase().includes(searchByNameText.toLowerCase())
       );
 
       setFilteredStudents(filteredStudents);
     }
-  }, [searchText, setFilteredStudents, students.students]);
+  }, [searchByNameText, setFilteredStudents, students.students]);
 
   return (
     <div className="search-container">
       <input
         type="text"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
+        value={searchByNameText}
+        onChange={(e) => setSearchByNameText(e.target.value)}
         placeholder="Search by name"
       />
     </div>
