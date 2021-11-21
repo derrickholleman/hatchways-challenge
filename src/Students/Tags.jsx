@@ -29,8 +29,8 @@ const Tags = ({ tags, setTags, student }) => {
   });
 
   // render filtered tags
-  const tagsList = studentTags.map((tag, index) => {
-    return <p key={index}>{tag.content}</p>;
+  const tagsList = studentTags.map((tag) => {
+    return <p key={tag.tagId}>{tag.content}</p>;
   });
   return (
     <div>
