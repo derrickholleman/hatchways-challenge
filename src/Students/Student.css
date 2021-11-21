@@ -63,6 +63,7 @@
 
 .tags {
   display: flex;
+  flex-wrap: wrap;
   margin-left: .5rem;
   margin-top: .5rem;
 }

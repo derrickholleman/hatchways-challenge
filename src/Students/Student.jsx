@@ -4,7 +4,10 @@ import getAverage from "../utils/getAverage";
 
 const Student = ({ student, tags, setTags }) => {
   const [showGrades, setShowGrades] = useState(false);
-  const [tag, setTag] = useState("");
+  const [tag, setTag] = useState({
+    studentId: student.id,
+    content: "",
+  });
   const studentAverage = getAverage(student.grades);
 
   const gradesList = student.grades.map((grade, index) => {
@@ -22,11 +25,11 @@ const Student = ({ student, tags, setTags }) => {
   const handleSubmitTags = (e) => {
     e.preventDefault();
     setTags([...tags, tag]);
-    setTag("");
+    setTag({ id: student.id, content: "" });
   };
 
   const tagsList = tags.map((tag, index) => {
-    return <p key={index}>{tag}</p>;
+    return <p key={index}>{tag.content}</p>;
   });
 
   return (
@@ -53,8 +56,10 @@ const Student = ({ student, tags, setTags }) => {
               <input
                 type="text"
                 placeholder="Add a tag"
-                value={tag}
-                onChange={(e) => setTag(e.target.value)}
+                value={tag.content}
+                onChange={(e) =>
+                  setTag({ studentId: student.id, content: e.target.value })
+                }
               />
               <input type="submit" style={{ display: "none" }} />
             </form>
