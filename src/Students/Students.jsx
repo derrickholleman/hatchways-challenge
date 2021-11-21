@@ -1,7 +1,15 @@
 import { useEffect } from "react";
 import Student from "./Student";
 
-function Students({ students, setStudents, searchText, filteredStudents }) {
+function Students({
+  students,
+  setStudents,
+  searchText,
+  filteredStudents,
+  tags,
+  setTags,
+}) {
+  
   useEffect(() => {
     async function getStudents() {
       const studentsRes = await fetch(
@@ -23,10 +31,20 @@ function Students({ students, setStudents, searchText, filteredStudents }) {
         <div>
           {searchText.length > 0
             ? filteredStudents.map((student) => (
-                <Student key={student.id} student={student} />
+                <Student
+                  key={student.id}
+                  student={student}
+                  tags={tags}
+                  setTags={setTags}
+                />
               ))
             : students.students.map((student) => (
-                <Student key={student.id} student={student} />
+                <Student
+                  key={student.id}
+                  student={student}
+                  tags={tags}
+                  setTags={setTags}
+                />
               ))}
         </div>
       )}

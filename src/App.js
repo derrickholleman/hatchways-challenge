@@ -7,6 +7,7 @@ function App() {
   const [students, setStudents] = useState([]);
   const [filteredStudents, setFilteredStudents] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [tags, setTags] = useState([])
 
   return (
     <div className="App">
@@ -21,6 +22,8 @@ function App() {
         setStudents={setStudents}
         searchText={searchText}
         filteredStudents={filteredStudents}
+        tags={tags}
+        setTags={setTags}
       />
     </div>
   );

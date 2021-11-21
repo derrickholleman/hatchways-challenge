@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./Student.css";
 import getAverage from "../utils/getAverage";
 
-const Student = ({ student }) => {
+const Student = ({ student, tags, setTags }) => {
   const [showGrades, setShowGrades] = useState(false);
+  const [tag, setTag] = useState("");
   const studentAverage = getAverage(student.grades);
 
   const gradesList = student.grades.map((grade, index) => {
@@ -17,6 +18,16 @@ const Student = ({ student }) => {
   const toggleGrades = () => {
     setShowGrades(!showGrades);
   };
+
+  const handleSubmitTags = (e) => {
+    e.preventDefault();
+    setTags([...tags, tag]);
+    setTag("");
+  };
+
+  const tagsList = tags.map((tag, index) => {
+    return <p key={index}>{tag}</p>;
+  });
 
   return (
     <div>
@@ -34,7 +45,19 @@ const Student = ({ student }) => {
             <p>Company: {student.company}</p>
             <p>Skill: {student.skill}</p>
             <p>Average: {studentAverage}%</p>
+
             {showGrades && <ul className="student-grades">{gradesList}</ul>}
+
+            <div className="tags">{tagsList}</div>
+            <form onSubmit={handleSubmitTags}>
+              <input
+                type="text"
+                placeholder="Add a tag"
+                value={tag}
+                onChange={(e) => setTag(e.target.value)}
+              />
+              <input type="submit" style={{ display: "none" }} />
+            </form>
           </div>
         </div>
 

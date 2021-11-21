@@ -26,6 +26,13 @@
   margin-left: 0.5rem;
   margin-bottom: 0.15rem;
 }
+.student-information input {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+}
+.student-information input::placeholder {
+  font-size: 1rem;
+}
 .student-name {
   color: black;
   margin-bottom: 0.5rem;
@@ -35,6 +42,7 @@
   list-style: none;
   margin-left: 0.5rem;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   color: gray;
   font-size: 14px;
 }
@@ -51,6 +59,17 @@
 
 .toggle-button:active {
   transform: scale(.98);
+}
+
+.tags {
+  display: flex;
+  margin-left: .5rem;
+  margin-top: .5rem;
+}
+.tags p {
+  background-color: rgba(128, 128, 128, 0.288);
+  color: black;
+  padding: .25rem .75rem;
 }
 
 @media screen and (max-width: 360px) {
