@@ -6,18 +6,49 @@ const Search = ({
   setFilteredStudents,
   searchByNameText,
   setSearchByNameText,
+  searchByTagText,
+  setSearchByTagText,
+  tags,
+  setFilteredStudentsByTag
 }) => {
+  // filter by name
   useEffect(() => {
     if (students.students) {
       let filteredStudents = students.students.filter(
         (student) =>
-          student.firstName.toLowerCase().includes(searchByNameText.toLowerCase()) ||
-          student.lastName.toLowerCase().includes(searchByNameText.toLowerCase())
+          student.firstName
+            .toLowerCase()
+            .includes(searchByNameText.toLowerCase()) ||
+          student.lastName
+            .toLowerCase()
+            .includes(searchByNameText.toLowerCase())
       );
 
       setFilteredStudents(filteredStudents);
     }
   }, [searchByNameText, setFilteredStudents, students.students]);
+
+  // filter by tags
+  useEffect(() => {
+    if (tags && students.students) {
+      let filteredTags = tags.filter((tag) =>
+        tag.content.toLowerCase().includes(searchByTagText.toLowerCase())
+      );
+
+      let studentMatches = []
+
+      filteredTags.forEach((tag) => {
+        students.students.forEach((student) => {
+          if (tag.studentId === student.id) {
+            studentMatches.push(student)
+          }
+        });
+      });
+
+      // make sure array has no duplicates
+      setFilteredStudentsByTag([...new Set(studentMatches)])
+    }
+  }, [searchByTagText, tags, setFilteredStudentsByTag, students.students]);
 
   return (
     <div className="search-container">
@@ -26,6 +57,12 @@ const Search = ({
         value={searchByNameText}
         onChange={(e) => setSearchByNameText(e.target.value)}
         placeholder="Search by name"
+      />
+      <input
+        type="text"
+        value={searchByTagText}
+        onChange={(e) => setSearchByTagText(e.target.value)}
+        placeholder="Search by tag"
       />
     </div>
   );
