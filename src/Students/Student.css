@@ -12,6 +12,11 @@
   max-height: 80px;
   align-self: flex-start;
 }
+.student-photo img {
+  width: 80px;
+  max-width: 100%;
+  height: auto;
+}
 
 .student-information {
   font-size: 14px;
@@ -46,4 +51,10 @@
 
 .toggle-button:active {
   transform: scale(.98);
+}
+
+@media screen and (max-width: 360px) {
+  .student-photo {
+    width: 50px;
+  }
 }

@@ -11,20 +11,8 @@
   padding: 0%;
 }
 
-img {
-  width: 80px;
-  max-width: 100%;
-  height: auto;
-}
-
 @media screen and (max-width: 490px) {
   .App {
     width: 98%;
-  }
-}
-
-@media screen and (max-width: 360px) {
-  img {
-    width: 50px;
   }
 }
