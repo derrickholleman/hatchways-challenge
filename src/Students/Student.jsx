@@ -39,14 +39,25 @@ const Student = ({ student }) => {
         </div>
 
         <div>
-          <button
-            className="toggle-button"
-            aria-label="toggle grades"
-            aria-expanded={showGrades}
-            onClick={toggleGrades}
-          >
-            +
-          </button>
+          {showGrades ? (
+            <button
+              className="toggle-button"
+              aria-label="toggle grades"
+              aria-expanded={showGrades}
+              onClick={toggleGrades}
+            >
+              -
+            </button>
+          ) : (
+            <button
+              className="toggle-button"
+              aria-label="toggle grades"
+              aria-expanded={showGrades}
+              onClick={toggleGrades}
+            >
+              +
+            </button>
+          )}
         </div>
       </div>
     </div>
