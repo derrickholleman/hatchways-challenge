@@ -1,38 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
 .App {
-  text-align: center;
+  width: 85%;
+  margin: 1rem auto;
+  font-family: "Roboto", "sans-serif";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0%;
+  padding: 0%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+img {
+  width: 80px;
+  max-width: 100%;
+  height: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.student-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 1rem;
+  max-width: fit-content;
 }
 
-.App-link {
-  color: #61dafb;
+.student-photo {
+  border: 1px solid rgba(128, 128, 128, 0.24);
+  border-radius: 100%;
+  overflow: hidden;
+  margin-right: 1rem;
+  max-height: 80px;
+  align-self: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.student-information {
+  font-size: 14px;
+  color: gray;
+}
+.student-information p {
+  margin-left: 0.5rem;
+  margin-bottom: 0.15rem;
+}
+.student-name {
+  color: black;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+@media screen and (max-width: 490px) {
+  .App {
+    width: 98%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (max-width: 360px) {
+  img {
+    width: 50px;
   }
 }
