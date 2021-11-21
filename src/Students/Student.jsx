@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 const Student = ({ student, tags, setTags }) => {
   const initialTagState = {
     tagId: uuidv4(),
-    studentId: student.id,
+    studentId: "",
     content: "",
   };
   const [showGrades, setShowGrades] = useState(false);
@@ -28,17 +28,25 @@ const Student = ({ student, tags, setTags }) => {
   const handleSetTag = (e) => {
     setTag({
       ...tag,
-      content: e.target.value,
+      studentId: e.currentTarget.id,
+      content: e.currentTarget.value,
     });
   };
 
   const handleSubmitTags = (e) => {
     e.preventDefault();
-    setTags([...tags, tag]);
-    setTag({ ...initialTagState });
+    if (student.id === tag.studentId) {
+      setTags([...tags, tag]);
+      setTag({ ...initialTagState });
+    }
   };
 
-  const tagsList = tags.map((tag, index) => {
+  // make const studentTags filter where tags.filter((tag) => tag.studentId === student.id)  then setTags with ...studentTags
+  // then map that new list below to tagsList
+  const studentTags = tags.filter((tag) => {
+    return tag.studentId === student.id
+  })
+  const tagsList = studentTags.map((tag, index) => {
     return <p key={index}>{tag.content}</p>;
   });
 
@@ -68,6 +76,7 @@ const Student = ({ student, tags, setTags }) => {
                 placeholder="Add a tag"
                 value={tag.content}
                 onChange={handleSetTag}
+                id={student.id}
               />
               <input type="submit" style={{ display: "none" }} />
             </form>
