@@ -50,7 +50,7 @@ const Student = ({ student, tags, setTags }) => {
               aria-expanded={showGrades}
               onClick={toggleGrades}
             >
-            <i class="bi bi-dash"></i>
+            <i className="bi bi-dash"></i>
             </button>
           ) : (
             <button
@@ -59,7 +59,7 @@ const Student = ({ student, tags, setTags }) => {
               aria-expanded={showGrades}
               onClick={toggleGrades}
             >
-            <i class="bi bi-plus"></i>
+            <i className="bi bi-plus"></i>
             </button>
           )}
         </div>
