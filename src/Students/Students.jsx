@@ -42,11 +42,12 @@ function Students({
   if (students.students) {
     // take already filtered list of students based on tags and filter it by student first/last name
     doubleFilteredList = filteredStudentsByTag.filter(
-      (student) =>
-        student.firstName
-          .toLowerCase()
-          .includes(searchByNameText.toLowerCase()) ||
-        student.lastName.toLowerCase().includes(searchByNameText.toLowerCase())
+      (student) => {
+      let fullName = student.firstName + " " + student.lastName
+      return fullName
+        .toLowerCase()
+        .includes(searchByNameText.toLowerCase())
+      }
     );
   }
 

@@ -15,18 +15,20 @@ const Search = ({
   useEffect(() => {
     if (students.students) {
       let filteredStudents = students.students.filter(
-        (student) =>
-          student.firstName
-            .toLowerCase()
-            .includes(searchByNameText.toLowerCase()) ||
-          student.lastName
+        (student) => {
+          // allow search by full name
+          let fullName = student.firstName + " " + student.lastName
+          return fullName
             .toLowerCase()
             .includes(searchByNameText.toLowerCase())
+        }
       );
 
       setFilteredStudentsByName(filteredStudents);
     }
   }, [searchByNameText, setFilteredStudentsByName, students.students]);
+
+  console.log(searchByNameText)
 
   // filter by tags
   useEffect(() => {
