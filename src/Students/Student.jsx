@@ -30,7 +30,7 @@ const Student = ({ student, tags, setTags }) => {
 
           <div className="student-information">
             <h2 className="student-name">
-              {student.firstName} {student.lastName}
+              {student.firstName.toUpperCase()} {student.lastName.toUpperCase()}
             </h2>
             <p>Email: {student.email}</p>
             <p>Company: {student.company}</p>
