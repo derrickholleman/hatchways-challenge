@@ -28,8 +28,6 @@ const Search = ({
     }
   }, [searchByNameText, setFilteredStudentsByName, students.students]);
 
-  console.log(searchByNameText)
-
   // filter by tags
   useEffect(() => {
     if (students.students) {
