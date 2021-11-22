@@ -1,31 +1,31 @@
 .search-container {
-    margin: 0 1rem 2rem 1rem;
+  margin: 0 1rem 2rem 1rem;
 }
 
 input {
-    width: 95%;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 2px solid rgba(128, 128, 128, 0.863);
-    padding-top: 1rem;
-    padding-bottom: .5rem;
-    font-size: 1.5rem;
-    color: rgba(128, 128, 128, 0.87);
-    font-family: "Raleway", "sans-serif";
+  width: 95%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.863);
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: rgba(128, 128, 128, 0.87);
+  font-family: "Raleway", "sans-serif";
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 input::placeholder {
-    font-family: "Raleway", "sans-serif";
-    font-size: 1.5rem;
-    color: rgba(128, 128, 128, 0.582);
-    font-weight: 300;
+  font-family: "Raleway", "sans-serif";
+  font-size: 1.5rem;
+  color: rgba(128, 128, 128, 0.582);
+  font-weight: 300;
 }
 
 form input {
-    width: auto;
+  width: auto;
 }

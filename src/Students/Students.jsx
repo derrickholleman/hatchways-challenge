@@ -29,6 +29,7 @@ function Students({
   }, [students.length, setStudents]);
 
   useEffect(() => {
+    // check if filtering, otherwise render default student list
     if (searchByNameText.length > 0 || searchByTagText.length > 0) {
       setIsFiltering(true);
     } else {
@@ -39,6 +40,7 @@ function Students({
   let doubleFilteredList;
 
   if (students.students) {
+    // take already filtered list of students based on tags and filter it by student first/last name
     doubleFilteredList = filteredStudentsByTag.filter(
       (student) =>
         student.firstName
@@ -52,7 +54,7 @@ function Students({
     <div>
       {students.students && (
         <div>
-          {/* filter by both tag and name */}
+          {/* filtered by both tag and name */}
           {searchByNameText.length > 0 &&
             searchByTagText.length > 0 &&
             doubleFilteredList.map((student) => (
@@ -64,7 +66,7 @@ function Students({
               />
             ))}
 
-          {/* filter by name */}
+          {/* filtered by name */}
           {searchByNameText.length > 0 &&
             searchByTagText.length === 0 &&
             filteredStudentsByName.map((student) => (
@@ -76,7 +78,7 @@ function Students({
               />
             ))}
 
-          {/* filter by tag */}
+          {/* filtered by tag */}
           {searchByTagText.length > 0 &&
             searchByNameText.length === 0 &&
             filteredStudentsByTag.map((student) => (

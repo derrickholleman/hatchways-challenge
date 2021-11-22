@@ -41,6 +41,7 @@ const Tags = ({ tags, setTags, student }) => {
           placeholder="Add a tag"
           value={tag.content}
           onChange={handleSetTag}
+          // set id of the form so it can be used to create the tag's studentId
           id={student.id}
         />
         <input type="submit" style={{ display: "none" }} />

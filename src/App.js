@@ -4,7 +4,7 @@ import Students from "./Students/Students";
 import Search from "./Search/Search";
 
 function App() {
-  const [isFiltering, setIsFiltering] = useState(false)
+  const [isFiltering, setIsFiltering] = useState(false);
   const [students, setStudents] = useState([]);
   const [filteredStudentsByName, setFilteredStudentsByName] = useState([]);
   const [filteredStudentsByTag, setFilteredStudentsByTag] = useState([]);

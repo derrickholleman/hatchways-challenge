@@ -9,7 +9,7 @@ const Search = ({
   searchByTagText,
   setSearchByTagText,
   tags,
-  setFilteredStudentsByTag
+  setFilteredStudentsByTag,
 }) => {
   // filter by name
   useEffect(() => {
@@ -31,22 +31,24 @@ const Search = ({
   // filter by tags
   useEffect(() => {
     if (students.students) {
+      // filter all tags based on what is typed into tag search
       let filteredTags = tags.filter((tag) =>
         tag.content.toLowerCase().includes(searchByTagText.toLowerCase())
       );
 
-      let studentMatches = []
+      let studentMatches = [];
 
+      // for each matched tag, see what the corresponding student id is and push the matched student into an array
       filteredTags.forEach((tag) => {
         students.students.forEach((student) => {
           if (tag.studentId === student.id) {
-            studentMatches.push(student)
+            studentMatches.push(student);
           }
         });
       });
 
       // make sure array has no duplicates
-      setFilteredStudentsByTag([...new Set(studentMatches)])
+      setFilteredStudentsByTag([...new Set(studentMatches)]);
     }
   }, [searchByTagText, tags, setFilteredStudentsByTag, students.students]);
 
