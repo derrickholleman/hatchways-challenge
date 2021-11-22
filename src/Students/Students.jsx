@@ -36,34 +36,63 @@ function Students({
     }
   }, [setIsFiltering, searchByNameText.length, searchByTagText.length]);
 
+  let doubleFilteredList;
+
+  if (students.students) {
+    doubleFilteredList = filteredStudentsByTag.filter(
+      (student) =>
+        student.firstName
+          .toLowerCase()
+          .includes(searchByNameText.toLowerCase()) ||
+        student.lastName.toLowerCase().includes(searchByNameText.toLowerCase())
+    );
+  }
+
   return (
     <div>
       {students.students && (
         <div>
-          {searchByNameText.length > 0 && searchByTagText.length === 0 &&
-            filteredStudents.map((student, index) => (
+          {/* filter by both tag and name */}
+          {searchByNameText.length > 0 &&
+            searchByTagText.length > 0 &&
+            doubleFilteredList.map((student) => (
               <Student
-                key={index}
+                key={student.id}
                 student={student}
                 tags={tags}
                 setTags={setTags}
               />
             ))}
 
-          {searchByTagText.length > 0 && searchByNameText.length === 0 &&
-            filteredStudentsByTag.map((student, index) => (
+          {/* filter by name */}
+          {searchByNameText.length > 0 &&
+            searchByTagText.length === 0 &&
+            filteredStudents.map((student) => (
               <Student
-                key={index}
+                key={student.id}
                 student={student}
                 tags={tags}
                 setTags={setTags}
               />
             ))}
 
+          {/* filter by tag */}
+          {searchByTagText.length > 0 &&
+            searchByNameText.length === 0 &&
+            filteredStudentsByTag.map((student) => (
+              <Student
+                key={student.id}
+                student={student}
+                tags={tags}
+                setTags={setTags}
+              />
+            ))}
+
+          {/* default rendered list */}
           {!isFiltering &&
-            students.students.map((student, index) => (
+            students.students.map((student) => (
               <Student
-                key={index}
+                key={student.id}
                 student={student}
                 tags={tags}
                 setTags={setTags}
