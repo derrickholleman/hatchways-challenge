@@ -3,7 +3,7 @@ import "./Search.css";
 
 const Search = ({
   students,
-  setFilteredStudents,
+  setFilteredStudentsByName,
   searchByNameText,
   setSearchByNameText,
   searchByTagText,
@@ -24,9 +24,9 @@ const Search = ({
             .includes(searchByNameText.toLowerCase())
       );
 
-      setFilteredStudents(filteredStudents);
+      setFilteredStudentsByName(filteredStudents);
     }
-  }, [searchByNameText, setFilteredStudents, students.students]);
+  }, [searchByNameText, setFilteredStudentsByName, students.students]);
 
   // filter by tags
   useEffect(() => {

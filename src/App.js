@@ -6,7 +6,7 @@ import SearchbyName from "./Search/Search";
 function App() {
   const [isFiltering, setIsFiltering] = useState(false)
   const [students, setStudents] = useState([]);
-  const [filteredStudents, setFilteredStudents] = useState([]);
+  const [filteredStudentsByName, setFilteredStudentsByName] = useState([]);
   const [filteredStudentsByTag, setFilteredStudentsByTag] = useState([]);
   const [searchByNameText, setSearchByNameText] = useState("");
   const [searchByTagText, setSearchByTagText] = useState("");
@@ -17,7 +17,7 @@ function App() {
       <SearchbyName
         students={students}
         tags={tags}
-        setFilteredStudents={setFilteredStudents}
+        setFilteredStudentsByName={setFilteredStudentsByName}
         searchByNameText={searchByNameText}
         setSearchByNameText={setSearchByNameText}
         searchByTagText={searchByTagText}
@@ -29,7 +29,7 @@ function App() {
         setStudents={setStudents}
         searchByNameText={searchByNameText}
         searchByTagText={searchByTagText}
-        filteredStudents={filteredStudents}
+        filteredStudentsByName={filteredStudentsByName}
         filteredStudentsByTag={filteredStudentsByTag}
         tags={tags}
         setTags={setTags}

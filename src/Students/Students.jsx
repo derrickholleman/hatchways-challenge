@@ -6,7 +6,7 @@ function Students({
   setStudents,
   searchByNameText,
   searchByTagText,
-  filteredStudents,
+  filteredStudentsByName,
   tags,
   setTags,
   filteredStudentsByTag,
@@ -67,7 +67,7 @@ function Students({
           {/* filter by name */}
           {searchByNameText.length > 0 &&
             searchByTagText.length === 0 &&
-            filteredStudents.map((student) => (
+            filteredStudentsByName.map((student) => (
               <Student
                 key={student.id}
                 student={student}
