@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Student.css";
 import getAverage from "../utils/getAverage";
 import Tags from './Tags'
+import "bootstrap-icons/font/bootstrap-icons.css"
 
 const Student = ({ student, tags, setTags }) => {
   const [showGrades, setShowGrades] = useState(false);
@@ -49,7 +50,7 @@ const Student = ({ student, tags, setTags }) => {
               aria-expanded={showGrades}
               onClick={toggleGrades}
             >
-              -
+            <i class="bi bi-dash"></i>
             </button>
           ) : (
             <button
@@ -58,7 +59,7 @@ const Student = ({ student, tags, setTags }) => {
               aria-expanded={showGrades}
               onClick={toggleGrades}
             >
-              +
+            <i class="bi bi-plus"></i>
             </button>
           )}
         </div>
