@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Students from "./Students/Students";
-import SearchbyName from "./Search/Search";
+import Search from "./Search/Search";
 
 function App() {
   const [isFiltering, setIsFiltering] = useState(false)
@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <SearchbyName
+      <Search
         students={students}
         tags={tags}
         setFilteredStudentsByName={setFilteredStudentsByName}

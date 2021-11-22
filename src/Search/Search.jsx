@@ -30,7 +30,7 @@ const Search = ({
 
   // filter by tags
   useEffect(() => {
-    if (tags && students.students) {
+    if (students.students) {
       let filteredTags = tags.filter((tag) =>
         tag.content.toLowerCase().includes(searchByTagText.toLowerCase())
       );
