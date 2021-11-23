@@ -7,12 +7,16 @@ input {
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 2px solid rgba(128, 128, 128, 0.863);
+  border-bottom: 2px solid rgba(148, 148, 148, 0.863);
   padding-top: 1rem;
   padding-bottom: 0.5rem;
   font-size: 1.5rem;
-  color: rgba(128, 128, 128, 0.87);
+  color: rgba(112, 112, 112, 0.87);
   font-family: "Raleway", "sans-serif";
+}
+
+input:hover, input:active, input:focus {
+  border-bottom: 2px solid rgb(107, 107, 107);
 }
 
 input:focus {
@@ -22,7 +26,7 @@ input:focus {
 input::placeholder {
   font-family: "Raleway", "sans-serif";
   font-size: 1.5rem;
-  color: rgba(128, 128, 128, 0.582);
+  color: rgba(112, 112, 112, 0.87);
   font-weight: 300;
 }
 
