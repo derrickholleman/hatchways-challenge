@@ -3,7 +3,7 @@
 .App {
   max-width: 700px;
   max-height: 600px;
-  margin: 1rem auto;
+  margin: 5rem auto;
   font-family: "Raleway", "sans-serif";
   overflow-x: hidden;
   border: 2px solid black;
