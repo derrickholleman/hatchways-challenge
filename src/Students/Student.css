@@ -8,7 +8,8 @@
   border: 1px solid rgba(128, 128, 128, 0.24);
   border-radius: 100%;
   overflow: hidden;
-  margin-right: 1rem;
+  margin-right: .5rem;
+  margin-left: .5rem;
   max-height: 80px;
   align-self: flex-start;
 }
