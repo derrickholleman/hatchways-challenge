@@ -15,9 +15,7 @@ function Students({
 }) {
   useEffect(() => {
     async function getStudents() {
-      const studentsRes = await fetch(
-        "https://api.hatchways.io/assessment/students"
-      );
+      const studentsRes = await fetch(process.env.REACT_APP_API_BASE_URL);
       const studentsJSON = await studentsRes.json();
       setStudents(studentsJSON);
     }
@@ -41,14 +39,10 @@ function Students({
 
   if (students.students) {
     // take already filtered list of students based on tags and filter it by student first/last name
-    doubleFilteredList = filteredStudentsByTag.filter(
-      (student) => {
-      let fullName = student.firstName + " " + student.lastName
-      return fullName
-        .toLowerCase()
-        .includes(searchByNameText.toLowerCase())
-      }
-    );
+    doubleFilteredList = filteredStudentsByTag.filter((student) => {
+      let fullName = student.firstName + " " + student.lastName;
+      return fullName.toLowerCase().includes(searchByNameText.toLowerCase());
+    });
   }
 
   return (
