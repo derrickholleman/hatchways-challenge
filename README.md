@@ -20,3 +20,5 @@ afterwards visit http://localhost:3000/ to view the project
 
 ## Deployment
 [Live App](https://filtering-with-react.netlify.app)
+
+![App Photo](https://github.com/derrickholleman/hatchways-challenge/blob/main/images/app.png)
